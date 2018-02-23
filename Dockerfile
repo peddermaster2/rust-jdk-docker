@@ -6,3 +6,9 @@ RUN apt-get update -yqq && \
     rm -rf /var/lib/apt/lists/*
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
+
+RUN cd /opt && \
+    wget http://www-eu.apache.org/dist/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz && \
+    tar xzvf apache-maven-3.5.2-bin.tar.gz && \
+    rm apache-maven-3.5.2-bin.tar.gz && \
+    export PATH=/opt/apache-maven-3.5.2/bin:$PATH
