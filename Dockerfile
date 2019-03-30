@@ -8,8 +8,8 @@ RUN apt-get update -yqq && \
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 
 RUN cd /opt && \
-    wget http://www-eu.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz && \
-    tar xzvf apache-maven-3.5.4-bin.tar.gz && \
-    rm apache-maven-3.5.4-bin.tar.gz
+    wget http://www-eu.apache.org/dist/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz && \
+    tar xzvf apache-maven-3.6.0-bin.tar.gz && \
+    rm apache-maven-3.6.0-bin.tar.gz
 
-ENV PATH=/opt/apache-maven-3.5.4/bin:$PATH
+ENV PATH=/opt/apache-maven-3.6.0/bin:$PATH
