@@ -1,15 +1,18 @@
 FROM rustlang/rust:nightly
 
 RUN apt-get update -yqq && \
-    apt-get install -yq openjdk-8-jdk && \
-    apt-get install -yq llvm-3.9-dev libclang-3.9-dev clang-3.9 && \
+    apt-get install -yq --no-install-recommends \
+        openjdk-17-jdk \
+        llvm-dev \
+        libclang-dev \
+        clang && \
     rm -rf /var/lib/apt/lists/*
 
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
+ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64/
 
 RUN cd /opt && \
-    wget http://www-eu.apache.org/dist/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz && \
-    tar xzvf apache-maven-3.6.0-bin.tar.gz && \
-    rm apache-maven-3.6.0-bin.tar.gz
+    wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz && \
+    tar xzvf apache-maven-3.9.6-bin.tar.gz && \
+    rm apache-maven-3.9.6-bin.tar.gz
 
-ENV PATH=/opt/apache-maven-3.6.0/bin:$PATH
+ENV PATH=/opt/apache-maven-3.9.6/bin:$PATH
